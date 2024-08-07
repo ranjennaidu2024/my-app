@@ -6,14 +6,28 @@ import ReactDOM from 'react-dom/client'
 //   return <h2>My First Component</h2>
 // }
 
-//using jsx easier for future , what element gonna create , empty object and what to pass
-const Greeting = () => {
-  return React.createElement(
-    'div',
-    {},
-    React.createElement('h2', {}, 'hello world')
+//only can return one element , if multiple put in one div or use React.Fragment
+function Greeting() {
+  return (
+    <React.Fragment>
+      <div>
+        <h2>My First Component</h2>
+      </div>
+      <div>
+        <p>Testing</p>
+      </div>
+    </React.Fragment>
   )
 }
+
+//using jsx easier for future , what element gonna create , empty object and what to pass
+// const Greeting = () => {
+//   return React.createElement(
+//     'div',
+//     {},
+//     React.createElement('h2', {}, 'hello world')
+//   )
+// }
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
