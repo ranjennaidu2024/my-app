@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './index.css'
 
 //always start with capital letter for function
 // function Greeting() {
@@ -52,7 +53,7 @@ import ReactDOM from 'react-dom/client'
 
 function BookList() {
   return (
-    <section>
+    <section className="booklist">
       <Book />
       <Book />
       <Book />
