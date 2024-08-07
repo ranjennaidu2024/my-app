@@ -6,22 +6,24 @@ const author = 'Jordan Moore'
 const title = 'Interesting Facts For Curious Minds'
 const img = './images/book-1.jpg'
 
+//if we didnt pass the author for second element it wont show
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
-      <Book />
-      <Book />
-      <Book />
+      <Book author={author} title={title} img={img} />
+      <Book title={title} img={img} />
     </section>
   )
 }
-const Book = () => {
+
+//if the prop exists it will return value, otherwise no value
+const Book = (props) => {
+  console.log(props)
   return (
     <article className="book">
-      <img src={img} alt={title} />
-      <h2>{title}</h2>
-      <h4>{author} </h4>
+      <img src={props.img} alt={props.title} />
+      <h2>{props.title}</h2>
+      <h4>{props.author} </h4>
     </article>
   )
 }
