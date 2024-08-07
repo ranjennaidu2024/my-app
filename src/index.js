@@ -78,7 +78,23 @@ const Image = () => (
 const Title = () => {
   return <h2>Interesting Facts For Curious Minds</h2>
 }
-const Author = () => <h4>Jordan Moore </h4>
+
+//for jsx we pass javascript object into the curly braces for css style
+// const Author = () => (
+//   <h4 style={{ color: '#617d98', fontSize: '0.75rem', marginTop: '0.5rem' }}>
+//     Jordan Moore
+//   </h4>
+// )
+
+//if other lib use inline css , can override like this , another way
+const Author = () => {
+  const inlineHeadingStyles = {
+    color: '#617d98',
+    fontSize: '0.75rem',
+    marginTop: '0.5rem',
+  }
+  return <h4 style={inlineHeadingStyles}>Jordan Moore </h4>
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
