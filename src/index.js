@@ -62,21 +62,40 @@ function BookList() {
   )
 }
 
+// const Book = () => {
+//   return (
+//     <article className="book">
+//       <Image />
+//       <Title />
+//       <Author />
+//     </article>
+//   )
+// }
+
+// const Image = () => (
+//   <img src="./images/book-1.jpg" alt="Interesting Facts For Curious Minds" />
+// )
+// const Title = () => {
+//   return <h2>Interesting Facts For Curious Minds</h2>
+// }
+
+//refactor to single book component (personal preference)
+const author = 'Jordan Moore'
 const Book = () => {
+  const title = 'Interesting Facts For Curious Mindssssss'
   return (
     <article className="book">
-      <Image />
-      <Title />
-      <Author />
+      <img
+        src="./images/book-1.jpg"
+        alt="Interesting Facts For Curious Minds"
+      />
+      <h2>{title}</h2>
+
+      <h4>{author.toUpperCase()} </h4>
+      {/* <p>{let x = 6}</p> */}
+      <p>{6 + 6}</p>
     </article>
   )
-}
-
-const Image = () => (
-  <img src="./images/book-1.jpg" alt="Interesting Facts For Curious Minds" />
-)
-const Title = () => {
-  return <h2>Interesting Facts For Curious Minds</h2>
 }
 
 //for jsx we pass javascript object into the curly braces for css style
