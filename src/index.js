@@ -17,17 +17,17 @@ const books = [
   },
 ]
 
-const Book = (props) => {
-  const { img, title, author } = props
+// const Book = (props) => {
+//   const { img, title, author } = props
 
-  return (
-    <article className="book">
-      <img src={img} alt={title} />
-      <h2>{title}</h2>
-      <h4>{author} </h4>
-    </article>
-  )
-}
+//   return (
+//     <article className="book">
+//       <img src={img} alt={title} />
+//       <h2>{title}</h2>
+//       <h4>{author} </h4>
+//     </article>
+//   )
+// }
 
 // function BookList() {
 //   return (
@@ -35,21 +35,33 @@ const Book = (props) => {
 //       {books.map((book) => {
 //         console.log(book)
 //         const { img, title, author, id } = book
-//         return <Book img={img} title={title} author={author} />
+//         return <Book img={img} title={title} author={author} key={id} />
 //       })}
 //     </section>
 //   )
 // }
 
+//pass the entire book object instead of passing each of book props
+// - utilize spread operator (...) - copy values
+// - Spread Operator
 function BookList() {
   return (
     <section className="booklist">
       {books.map((book) => {
-        console.log(book)
-        const { img, title, author, id } = book
-        return <Book img={img} title={title} author={author} key={id} />
+        return <Book {...book} key={book.id} />
       })}
     </section>
+  )
+}
+
+const Book = (props) => {
+  const { img, title, author } = props
+  return (
+    <article className="book">
+      <img src={img} alt={title} />
+      <h2>{title}</h2>
+      <h4>{author} </h4>
+    </article>
   )
 }
 
