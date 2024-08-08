@@ -17,33 +17,63 @@ const books = [
   },
 ]
 
-function BookList() {
-  const someValue = 'shakeAndBake'
-  const displayValue = () => {
-    console.log(someValue)
+// - create getBook function in booklist
+// - accepts id as an argument and finds the book
+// - pass the function down to Book Component and invoke on the button click
+// - in the Book Component destructure id and function
+// - invoke the function when user clicks the button, pass the id
+// - the goal : you should see the same book in the console
+
+const BookList = () => {
+  const getBook = (id) => {
+    const book = books.find((book) => book.id === id)
+    console.log(book)
   }
+
   return (
     <section className="booklist">
       {books.map((book) => {
-        return <Book {...book} key={book.id} displayValue={displayValue} />
+        return <Book {...book} key={book.id} getBook={getBook} />
       })}
     </section>
   )
 }
 
-const Book = (props) => {
-  const { img, title, author, displayValue } = props
+//problem : you cannot directly use getBook(id) for the onClick event:
+//<button onClick={getBook(id)}>display title</button>
 
+// - two option to do this:
+// - first option - setup wrapper
+// const Book = (props) => {
+//   const { img, title, author, getBook, id } = props
+//   // console.log(props);
+//   const getSingleBook = () => {
+//     getBook(id)
+//   }
+//   return (
+//     <article className="book">
+//       <img src={img} alt={title} />
+//       <h2>{title}</h2>
+//       <button onClick={getSingleBook}>display title</button>
+//       <h4>{author}</h4>
+//     </article>
+//   )
+// }
+
+//- second option - wrap in the anonymous arrow function
+const Book = (props) => {
+  const { img, title, author, getBook, id } = props
+  // console.log(props);
   return (
     <article className="book">
       <img src={img} alt={title} />
       <h2>{title}</h2>
-      <button onClick={displayValue}>click me</button>
-      <h4>{author} </h4>
+
+      <button onClick={() => getBook(id)}>display title</button>
+      <h4>{author}</h4>
     </article>
   )
 }
-
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(<BookList />)
