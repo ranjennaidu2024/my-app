@@ -26,7 +26,27 @@ npx create-react-app@latest my-app
 5. Open Visual Studio Code , drag the folder and can open terminal inside that using Ctrl + ~
 
 6. to start the app , you can access by http://localhost:3000/
+
    > npm start
+
+7. Do code change and push the code
+
+8. Build and deploy
+
+#### Build Production Application
+
+- stop the dev server "ctrl + c"
+- run "npm run build"
+- build folder gets created
+
+#### Netlify
+
+- sign up
+- add new site/deploy manually
+- choose build folder
+- rename site - site settings/change site name
+
+For this project currently deployed to https://ranjen-react-starter-app.netlify.app/
 
 ---
 
