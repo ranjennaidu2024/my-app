@@ -55,41 +55,104 @@ function BookList() {
   )
 }
 
+// Approach 1
+// const EventExamples = () => {
+//   const handleFormInput = (e) => {
+//     console.log(e)
+//     // e.target - element
+//     console.log(`Input Name : ${e.target.name}`)
+//     console.log(`Input Value : ${e.target.value}`)
+//     // console.log('handle form input');
+//   }
+//   const handleButtonClick = () => {
+//     alert('handle button click')
+//   }
+//   const handleFormSubmission = (e) => {
+//     //normally it will submit the value of form to other api,
+//     //e.preventDefault() is to say that we will control the form and so can see the console.log
+//     e.preventDefault()
+//     console.log('form submitted')
+//   }
+//   return (
+//     <section>
+//       {/* add onSubmit Event Handler */}
+//       <form onSubmit={handleFormSubmission}>
+//         <h2>Typical Form</h2>
+//         <input
+//           type="text"
+//           name="example"
+//           onChange={handleFormInput}
+//           style={{ margin: '1rem 0' }}
+//         />
+//         {/* add button with type='submit to submit when press enter key ,
+//         onClick is to submit form when click on the button' */}
+//         <button type="submit" onClick={handleFormSubmission}>
+//           submit form
+//         </button>
+//       </form>
+//       <button onClick={handleButtonClick}>click me</button>
+//     </section>
+//   )
+// }
+
+// Approach 2
+//- alternative approach
+// - pass anonymous function (in this case arrow function)
+// - one liner - less code
+// const EventExamples = () => {
+//   return (
+//     <section>
+//       {/* add onSubmit Event Handler */}
+//       <form>
+//         <h2>Typical Form</h2>
+//         <input
+//           type="text"
+//           name="example"
+//           onChange={(e) => console.log(e.target.value)}
+//           style={{ margin: '1rem 0' }}
+//         />
+//         {/* add button with type='submit to submit when press enter key ,
+//         onClick is to submit form when click on the button' */}
+//         <button type="submit">submit form</button>
+//         <div>
+//           <button onClick={() => console.log('click me')} type="button">
+//             click me
+//           </button>
+//         </div>
+//       </form>
+//     </section>
+//   )
+// }
+
+//Approach 3
+// on top of Approach 2 , if still want to add prevent from default form submission and console log it
+// best to use approach 1 , and 2 if didn't want to prevent default form submission
 const EventExamples = () => {
-  const handleFormInput = (e) => {
-    console.log(e)
-    // e.target - element
-    console.log(`Input Name : ${e.target.name}`)
-    console.log(`Input Value : ${e.target.value}`)
-    // console.log('handle form input');
-  }
-  const handleButtonClick = () => {
-    alert('handle button click')
-  }
-  const handleFormSubmission = (e) => {
-    //normally it will submit the value of form to other api,
-    //e.preventDefault() is to say that we will control the form and so can see the console.log
+  const handleSubmit = (e) => {
     e.preventDefault()
     console.log('form submitted')
   }
+
   return (
     <section>
       {/* add onSubmit Event Handler */}
-      <form onSubmit={handleFormSubmission}>
+      <form onSubmit={handleSubmit}>
         <h2>Typical Form</h2>
         <input
           type="text"
           name="example"
-          onChange={handleFormInput}
+          onChange={(e) => console.log(e.target.value)}
           style={{ margin: '1rem 0' }}
         />
-        {/* add button with type='submit to submit when press enter key , 
+        {/* add button with type='submit to submit when press enter key ,
         onClick is to submit form when click on the button' */}
-        <button type="submit" onClick={handleFormSubmission}>
-          submit form
-        </button>
+        <button type="submit">submit form</button>
+        <div>
+          <button onClick={() => console.log('click me')} type="button">
+            click me
+          </button>
+        </div>
       </form>
-      <button onClick={handleButtonClick}>click me</button>
     </section>
   )
 }
