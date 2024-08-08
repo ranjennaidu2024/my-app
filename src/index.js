@@ -56,15 +56,26 @@ function BookList() {
 }
 
 const EventExamples = () => {
-  const handleFormInput = () => {
-    console.log('handle form input')
+  const handleFormInput = (e) => {
+    console.log(e)
+    // e.target - element
+    console.log(`Input Name : ${e.target.name}`)
+    console.log(`Input Value : ${e.target.value}`)
+    // console.log('handle form input');
   }
   const handleButtonClick = () => {
     alert('handle button click')
   }
+  const handleFormSubmission = (e) => {
+    //normally it will submit the value of form to other api,
+    //e.preventDefault() is to say that we will control the form and so can see the console.log
+    e.preventDefault()
+    console.log('form submitted')
+  }
   return (
     <section>
-      <form>
+      {/* add onSubmit Event Handler */}
+      <form onSubmit={handleFormSubmission}>
         <h2>Typical Form</h2>
         <input
           type="text"
@@ -72,6 +83,11 @@ const EventExamples = () => {
           onChange={handleFormInput}
           style={{ margin: '1rem 0' }}
         />
+        {/* add button with type='submit to submit when press enter key , 
+        onClick is to submit form when click on the button' */}
+        <button type="submit" onClick={handleFormSubmission}>
+          submit form
+        </button>
       </form>
       <button onClick={handleButtonClick}>click me</button>
     </section>
